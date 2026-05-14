@@ -76,21 +76,24 @@ Open http://localhost:5173 in your browser
 
 ### ✅ Completed
 - [x] Project initialization
-- [x] React project setup
+- [x] React project setup with Vite
 - [x] TypeScript type definitions
 - [x] CSV data acquisition (2 samples)
 - [x] Data structure design
 - [x] CSV parsing specification
+- [x] Data processing script implementation (CSV to JSON converter)
+- [x] e-Stat API integration scripts
+- [x] Chart implementation (ApexCharts integration)
+- [x] Dashboard UI implementation
+- [x] Demo data creation and testing
 
 ### 🚧 In Progress
-- [ ] Data processing script implementation
-- [ ] UI/UX design
+- [ ] Real e-Stat data integration
 - [ ] Multi-year data collection
+- [ ] Filter functionality
 
 ### ⏳ Not Started
-- [ ] Chart implementation
-- [ ] Filter functionality
-- [ ] Deployment
+- [ ] Deployment to Cloudflare Pages
 
 See `DESIGN.md` for details.
 

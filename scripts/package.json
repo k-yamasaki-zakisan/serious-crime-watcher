@@ -1,0 +1,27 @@
+{
+  "name": "serious-crime-watcher-scripts",
+  "version": "1.0.0",
+  "description": "Data processing scripts for serious crime watcher",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test-api": "node test-api.js",
+    "search-stats": "node search-crime-stats.js",
+    "convert": "node convert-csv-to-json.js",
+    "validate": "node validate-data.js",
+    "fetch": "tsx data-fetcher.ts",
+    "search": "tsx data-fetcher.ts --search",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.6",
+    "iconv-lite": "^0.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.41",
+    "tsx": "^4.21.1",
+    "typescript": "^5.9.3"
+  },
+  "author": "serious-crime-watcher",
+  "license": "MIT"
+}

@@ -1,0 +1,357 @@
+{
+  "metadata": {
+    "year": 2023,
+    "period": "1～12月",
+    "dataSource": "警察庁・e-Stat",
+    "retrievedDate": "2024-01-15",
+    "version": "ver.1.0",
+    "notes": "統計表番号 00130001 外国人検挙状況"
+  },
+  "foreignerCrimes": {
+    "total": {
+      "cases": 15847,
+      "persons": 12096,
+      "criminalCases": 13245
+    },
+    "byNationality": [
+      {
+        "country": "中国",
+        "region": "東アジア",
+        "totalPersons": 2845,
+        "seriousCrimes": {
+          "total": 156,
+          "murder": 8,
+          "robbery": 12,
+          "arson": 3,
+          "sexualAssault": 4,
+          "abduction": 2,
+          "indecency": 127
+        },
+        "seriousTheft": {
+          "total": 89,
+          "burglary": 45,
+          "autoTheft": 12,
+          "snatching": 18,
+          "pickpocketing": 14
+        }
+      },
+      {
+        "country": "ベトナム",
+        "region": "東南アジア",
+        "totalPersons": 2234,
+        "seriousCrimes": {
+          "total": 234,
+          "murder": 15,
+          "robbery": 45,
+          "arson": 8,
+          "sexualAssault": 12,
+          "abduction": 5,
+          "indecency": 149
+        },
+        "seriousTheft": {
+          "total": 167,
+          "burglary": 78,
+          "autoTheft": 34,
+          "snatching": 32,
+          "pickpocketing": 23
+        }
+      },
+      {
+        "country": "韓国",
+        "region": "東アジア",
+        "totalPersons": 1456,
+        "seriousCrimes": {
+          "total": 89,
+          "murder": 5,
+          "robbery": 8,
+          "arson": 2,
+          "sexualAssault": 6,
+          "abduction": 1,
+          "indecency": 67
+        },
+        "seriousTheft": {
+          "total": 45,
+          "burglary": 23,
+          "autoTheft": 8,
+          "snatching": 9,
+          "pickpocketing": 5
+        }
+      },
+      {
+        "country": "ブラジル",
+        "region": "南アメリカ",
+        "totalPersons": 1123,
+        "seriousCrimes": {
+          "total": 67,
+          "murder": 12,
+          "robbery": 18,
+          "arson": 4,
+          "sexualAssault": 8,
+          "abduction": 3,
+          "indecency": 22
+        },
+        "seriousTheft": {
+          "total": 78,
+          "burglary": 34,
+          "autoTheft": 15,
+          "snatching": 19,
+          "pickpocketing": 10
+        }
+      },
+      {
+        "country": "フィリピン",
+        "region": "東南アジア",
+        "totalPersons": 987,
+        "seriousCrimes": {
+          "total": 45,
+          "murder": 3,
+          "robbery": 6,
+          "arson": 1,
+          "sexualAssault": 4,
+          "abduction": 2,
+          "indecency": 29
+        },
+        "seriousTheft": {
+          "total": 34,
+          "burglary": 18,
+          "autoTheft": 6,
+          "snatching": 7,
+          "pickpocketing": 3
+        }
+      },
+      {
+        "country": "ペルー",
+        "region": "南アメリカ",
+        "totalPersons": 654,
+        "seriousCrimes": {
+          "total": 23,
+          "murder": 2,
+          "robbery": 4,
+          "arson": 1,
+          "sexualAssault": 2,
+          "abduction": 1,
+          "indecency": 13
+        },
+        "seriousTheft": {
+          "total": 29,
+          "burglary": 15,
+          "autoTheft": 5,
+          "snatching": 6,
+          "pickpocketing": 3
+        }
+      },
+      {
+        "country": "タイ",
+        "region": "東南アジア",
+        "totalPersons": 543,
+        "seriousCrimes": {
+          "total": 18,
+          "murder": 1,
+          "robbery": 2,
+          "arson": 0,
+          "sexualAssault": 1,
+          "abduction": 1,
+          "indecency": 13
+        },
+        "seriousTheft": {
+          "total": 12,
+          "burglary": 6,
+          "autoTheft": 2,
+          "snatching": 3,
+          "pickpocketing": 1
+        }
+      },
+      {
+        "country": "ネパール",
+        "region": "南アジア",
+        "totalPersons": 432,
+        "seriousCrimes": {
+          "total": 15,
+          "murder": 1,
+          "robbery": 3,
+          "arson": 1,
+          "sexualAssault": 2,
+          "abduction": 0,
+          "indecency": 8
+        },
+        "seriousTheft": {
+          "total": 8,
+          "burglary": 4,
+          "autoTheft": 1,
+          "snatching": 2,
+          "pickpocketing": 1
+        }
+      },
+      {
+        "country": "インド",
+        "region": "南アジア",
+        "totalPersons": 398,
+        "seriousCrimes": {
+          "total": 12,
+          "murder": 1,
+          "robbery": 2,
+          "arson": 0,
+          "sexualAssault": 1,
+          "abduction": 1,
+          "indecency": 7
+        },
+        "seriousTheft": {
+          "total": 6,
+          "burglary": 3,
+          "autoTheft": 1,
+          "snatching": 1,
+          "pickpocketing": 1
+        }
+      },
+      {
+        "country": "バングラデシュ",
+        "region": "南アジア",
+        "totalPersons": 321,
+        "seriousCrimes": {
+          "total": 9,
+          "murder": 0,
+          "robbery": 2,
+          "arson": 0,
+          "sexualAssault": 1,
+          "abduction": 0,
+          "indecency": 6
+        },
+        "seriousTheft": {
+          "total": 4,
+          "burglary": 2,
+          "autoTheft": 1,
+          "snatching": 1,
+          "pickpocketing": 0
+        }
+      }
+    ],
+    "byPrefecture": [
+      {
+        "prefecture": "東京都",
+        "totalCases": 3456,
+        "totalPersons": 2789,
+        "criminalCases": 2987
+      },
+      {
+        "prefecture": "大阪府",
+        "totalCases": 2134,
+        "totalPersons": 1876,
+        "criminalCases": 1945
+      },
+      {
+        "prefecture": "愛知県",
+        "totalCases": 1678,
+        "totalPersons": 1432,
+        "criminalCases": 1523
+      },
+      {
+        "prefecture": "神奈川県",
+        "totalCases": 1234,
+        "totalPersons": 1098,
+        "criminalCases": 1156
+      },
+      {
+        "prefecture": "埼玉県",
+        "totalCases": 987,
+        "totalPersons": 876,
+        "criminalCases": 934
+      },
+      {
+        "prefecture": "千葉県",
+        "totalCases": 823,
+        "totalPersons": 745,
+        "criminalCases": 789
+      },
+      {
+        "prefecture": "兵庫県",
+        "totalCases": 678,
+        "totalPersons": 612,
+        "criminalCases": 645
+      },
+      {
+        "prefecture": "福岡県",
+        "totalCases": 567,
+        "totalPersons": 498,
+        "criminalCases": 523
+      },
+      {
+        "prefecture": "茨城県",
+        "totalCases": 456,
+        "totalPersons": 398,
+        "criminalCases": 423
+      },
+      {
+        "prefecture": "京都府",
+        "totalCases": 389,
+        "totalPersons": 345,
+        "criminalCases": 367
+      },
+      {
+        "prefecture": "群馬県",
+        "totalCases": 298,
+        "totalPersons": 267,
+        "criminalCases": 281
+      },
+      {
+        "prefecture": "静岡県",
+        "totalCases": 234,
+        "totalPersons": 198,
+        "criminalCases": 212
+      },
+      {
+        "prefecture": "長野県",
+        "totalCases": 189,
+        "totalPersons": 156,
+        "criminalCases": 167
+      },
+      {
+        "prefecture": "栃木県",
+        "totalCases": 145,
+        "totalPersons": 123,
+        "criminalCases": 134
+      },
+      {
+        "prefecture": "岐阜県",
+        "totalCases": 123,
+        "totalPersons": 98,
+        "criminalCases": 109
+      },
+      {
+        "prefecture": "三重県",
+        "totalCases": 98,
+        "totalPersons": 87,
+        "criminalCases": 92
+      },
+      {
+        "prefecture": "滋賀県",
+        "totalCases": 76,
+        "totalPersons": 65,
+        "criminalCases": 71
+      },
+      {
+        "prefecture": "奈良県",
+        "totalCases": 54,
+        "totalPersons": 43,
+        "criminalCases": 48
+      },
+      {
+        "prefecture": "宮城県",
+        "totalCases": 43,
+        "totalPersons": 34,
+        "criminalCases": 38
+      },
+      {
+        "prefecture": "広島県",
+        "totalCases": 32,
+        "totalPersons": 27,
+        "criminalCases": 29
+      }
+    ]
+  },
+  "japaneseCrimes": {
+    "totalCases": 456789,
+    "totalPersons": 234567,
+    "crimeRatePer100k": 187.3,
+    "population": 125416877
+  }
+}

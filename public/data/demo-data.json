@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "year": 2023,
+    "period": "年間",
+    "dataSource": "e-Stat 警察庁犯罪統計",
+    "retrievedDate": "2026-05-14",
+    "notes": "デモンストレーション用データ",
+    "version": "確定値"
+  },
+  "foreignerCrimes": {
+    "total": {
+      "cases": 12450,
+      "persons": 7830,
+      "criminalCases": 8920,
+      "criminalPersons": 5640
+    },
+    "byNationality": [
+      {
+        "region": "アジア州",
+        "country": "中国",
+        "totalPersons": 1234,
+        "seriousCrimes": {
+          "total": 45,
+          "murder": 5,
+          "robbery": 12,
+          "arson": 2,
+          "sexualAssault": 8,
+          "abduction": 1,
+          "indecency": 17
+        },
+        "seriousTheft": {
+          "total": 89,
+          "burglary": 34,
+          "autoTheft": 21,
+          "snatching": 12,
+          "pickpocketing": 22
+        }
+      },
+      {
+        "region": "アジア州",
+        "country": "ベトナム",
+        "totalPersons": 987,
+        "seriousCrimes": {
+          "total": 67,
+          "murder": 12,
+          "robbery": 23,
+          "arson": 1,
+          "sexualAssault": 4,
+          "abduction": 2,
+          "indecency": 25
+        },
+        "seriousTheft": {
+          "total": 156,
+          "burglary": 78,
+          "autoTheft": 34,
+          "snatching": 18,
+          "pickpocketing": 26
+        }
+      }
+    ],
+    "byPrefecture": [
+      {
+        "prefecture": "東京都",
+        "totalCases": 3450,
+        "totalPersons": 2190,
+        "criminalCases": 2340,
+        "criminalPersons": 1450
+      },
+      {
+        "prefecture": "大阪府",
+        "totalCases": 1890,
+        "totalPersons": 1240,
+        "criminalCases": 1290,
+        "criminalPersons": 820
+      },
+      {
+        "prefecture": "神奈川県",
+        "totalCases": 1230,
+        "totalPersons": 780,
+        "criminalCases": 890,
+        "criminalPersons": 560
+      }
+    ]
+  },
+  "japaneseCrimes": {
+    "totalCases": 567890,
+    "totalPersons": 234567,
+    "totalPopulation": 123456789,
+    "crimeRatePer100k": 190.2
+  }
+}
