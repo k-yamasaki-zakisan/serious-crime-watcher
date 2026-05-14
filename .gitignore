@@ -1,0 +1,24 @@
+# ========================================
+# Serious Crime Watcher - Root .gitignore
+# ========================================
+# このファイルはプロジェクト全体の除外設定です
+# フロントエンドの除外設定は frontend/.gitignore を参照
+
+# Data files (CSV sources from e-Stat)
+# 警察庁の犯罪統計CSVファイル（Shift-JIS）
+/data/
+
+# Claude Code project files
+# Claude Codeの設定・キャッシュファイル
+/.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

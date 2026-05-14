@@ -1,0 +1,52 @@
+# ========================================
+# Frontend (React + Vite) - .gitignore
+# ========================================
+# このファイルはフロントエンドプロジェクトの除外設定です
+# プロジェクト全体の除外設定は ../.gitignore を参照
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+
+# Development
+*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# OS files (redundant but explicit)
+.DS_Store
+Thumbs.db
