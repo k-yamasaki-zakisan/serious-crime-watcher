@@ -86,16 +86,32 @@ Open http://localhost:5173 in your browser
 - [x] Chart implementation (ApexCharts integration)
 - [x] Dashboard UI implementation
 - [x] Demo data creation and testing
+- [x] Compact single-screen dashboard design
+- [x] European crime statistics research and analysis
 
 ### 🚧 In Progress
+- [ ] Population-adjusted crime rate implementation
+- [ ] Statistical fairness indicators
 - [ ] Real e-Stat data integration
-- [ ] Multi-year data collection
-- [ ] Filter functionality
 
-### ⏳ Not Started
+### ⏳ Planned
+- [ ] Age-adjusted analysis system
+- [ ] International benchmarking
+- [ ] Advanced AI-powered insights
 - [ ] Deployment to Cloudflare Pages
 
-See `DESIGN.md` for details.
+## 📚 Documentation
+
+### Research & Analysis
+- [`docs/european-crime-dashboard-research.md`](docs/european-crime-dashboard-research.md) - European crime statistics dashboard analysis
+- [`docs/data-requirements-specification.md`](docs/data-requirements-specification.md) - Data requirements based on European best practices
+- [`docs/dashboard-improvement-roadmap.md`](docs/dashboard-improvement-roadmap.md) - Development roadmap and implementation plan
+
+### Technical Documentation
+- [`DESIGN.md`](DESIGN.md) - Detailed design document (Japanese)
+- [`scripts/README.md`](scripts/README.md) - Data processing scripts documentation
+
+See documentation directory for comprehensive project analysis and planning.
 
 ## Data Sources
 
