@@ -4,7 +4,7 @@ import type { CrimeDataset } from '../types/crime-data';
 /**
  * 犯罪データを取得するカスタムフック
  */
-export function useCrimeData(dataPath: string = './data/demo-data.json') {
+export function useCrimeData(dataPath: string = './data/crime-statistics.json') {
   const [data, setData] = useState<CrimeDataset | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

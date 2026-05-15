@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useCrimeData } from '../hooks/useCrimeData';
 import type { CrimeDataset } from '../types/crime-data';
-import { NationalityBarChart } from './charts/NationalityBarChart';
-import { PrefectureDonutChart } from './charts/PrefectureDonutChart';
-import { CrimeTypePieChart } from './charts/CrimeTypePieChart';
+// Charts will be implemented later when external data is available
 
 const HeroKPI: React.FC<{ data: CrimeDataset }> = ({ data }) => (
   <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white p-8 rounded-2xl shadow-2xl mb-8">
@@ -24,40 +22,40 @@ const HeroKPI: React.FC<{ data: CrimeDataset }> = ({ data }) => (
         <div className="text-center group">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:border-white/30 transition-all duration-300 hover:scale-105">
             <div className="text-3xl font-bold mb-2 bg-gradient-to-br from-white to-blue-200 bg-clip-text text-transparent">
-              {data.foreignerCrimes.total.cases.toLocaleString()}
+              {data.summary.totalRecognizedCases.toLocaleString()}
             </div>
-            <div className="text-blue-100 text-sm font-medium">外国人総件数</div>
-            <div className="text-xs text-slate-300 mt-2 opacity-75">全犯罪（刑法犯+特別法犯）</div>
+            <div className="text-blue-100 text-sm font-medium">総認知件数</div>
+            <div className="text-xs text-slate-300 mt-2 opacity-75">刑法犯総数</div>
           </div>
         </div>
         
         <div className="text-center group">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:border-white/30 transition-all duration-300 hover:scale-105">
             <div className="text-3xl font-bold mb-2 bg-gradient-to-br from-white to-emerald-200 bg-clip-text text-transparent">
-              {data.foreignerCrimes.total.persons.toLocaleString()}
+              {data.summary.totalArrestedCases.toLocaleString()}
             </div>
-            <div className="text-emerald-100 text-sm font-medium">検挙総人員</div>
-            <div className="text-xs text-slate-300 mt-2 opacity-75">検挙された総人数</div>
+            <div className="text-emerald-100 text-sm font-medium">総検挙件数</div>
+            <div className="text-xs text-slate-300 mt-2 opacity-75">検挙された総件数</div>
           </div>
         </div>
         
         <div className="text-center group">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:border-white/30 transition-all duration-300 hover:scale-105">
             <div className="text-3xl font-bold mb-2 bg-gradient-to-br from-white to-orange-200 bg-clip-text text-transparent">
-              {Math.round(data.japaneseCrimes.crimeRatePer100k)}
+              {data.summary.averageArrestRate}%
             </div>
-            <div className="text-orange-100 text-sm font-medium">日本人犯罪率</div>
-            <div className="text-xs text-slate-300 mt-2 opacity-75">人口10万人あたり</div>
+            <div className="text-orange-100 text-sm font-medium">平均検挙率</div>
+            <div className="text-xs text-slate-300 mt-2 opacity-75">全期間平均</div>
           </div>
         </div>
         
         <div className="text-center group">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:border-white/30 transition-all duration-300 hover:scale-105">
             <div className="text-3xl font-bold mb-2 bg-gradient-to-br from-white to-purple-200 bg-clip-text text-transparent">
-              {data.foreignerCrimes.byPrefecture.length}
+              {data.summary.totalPersonnel.toLocaleString()}
             </div>
-            <div className="text-purple-100 text-sm font-medium">対象都道府県</div>
-            <div className="text-xs text-slate-300 mt-2 opacity-75">全国カバレッジ</div>
+            <div className="text-purple-100 text-sm font-medium">検挙総人員</div>
+            <div className="text-xs text-slate-300 mt-2 opacity-75">検挙された総人数</div>
           </div>
         </div>
       </div>
@@ -85,8 +83,8 @@ const CompactChart: React.FC<{
 );
 
 const QuickStats: React.FC<{ data: CrimeDataset }> = ({ data }) => {
-  const topNationalities = data.foreignerCrimes.byNationality.slice(0, 3);
-  const topPrefectures = data.foreignerCrimes.byPrefecture.slice(0, 3);
+  const topCrimeTypes = data.crimeTypes.slice(0, 3);
+  const recentYears = data.yearlyTrends.slice(-3);
 
   return (
     <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-100/50 p-6 hover:shadow-2xl transition-all duration-500">
@@ -96,47 +94,47 @@ const QuickStats: React.FC<{ data: CrimeDataset }> = ({ data }) => {
       </div>
       
       <div className="space-y-6 h-80 overflow-y-auto custom-scrollbar">
-        {/* 検挙人員 TOP3 */}
+        {/* 犯罪種別 TOP3 */}
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
           <div className="flex items-center mb-3">
             <span className="text-lg">🏆</span>
-            <h4 className="font-bold text-gray-700 ml-2">検挙人員 TOP3</h4>
+            <h4 className="font-bold text-gray-700 ml-2">犯罪種別 TOP3</h4>
           </div>
           <div className="space-y-2">
-            {topNationalities.map((item, index) => (
-              <div key={index} className="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg hover:bg-white/80 transition-colors duration-200">
+            {topCrimeTypes.map((item, index) => (
+              <div key={item.code} className="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg hover:bg-white/80 transition-colors duration-200">
                 <div className="flex items-center">
                   <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white mr-3 ${
                     index === 0 ? 'bg-yellow-500' : index === 1 ? 'bg-gray-400' : 'bg-amber-600'
                   }`}>
                     {index + 1}
                   </span>
-                  <span className="text-sm font-medium text-gray-800">{item.country}</span>
+                  <span className="text-sm font-medium text-gray-800">{item.name}</span>
                 </div>
-                <span className="text-sm font-bold text-blue-600">{item.totalPersons.toLocaleString()}人</span>
+                <span className="text-sm font-bold text-blue-600">{item.recognized.toLocaleString()}件</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* 都道府県 TOP3 */}
+        {/* 直近年度推移 */}
         <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl p-4 border border-emerald-100">
           <div className="flex items-center mb-3">
-            <span className="text-lg">📍</span>
-            <h4 className="font-bold text-gray-700 ml-2">都道府県 TOP3</h4>
+            <span className="text-lg">📈</span>
+            <h4 className="font-bold text-gray-700 ml-2">直近年度推移</h4>
           </div>
           <div className="space-y-2">
-            {topPrefectures.map((item, index) => (
-              <div key={index} className="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg hover:bg-white/80 transition-colors duration-200">
+            {recentYears.map((item, index) => (
+              <div key={item.year} className="flex justify-between items-center py-2 px-3 bg-white/60 rounded-lg hover:bg-white/80 transition-colors duration-200">
                 <div className="flex items-center">
                   <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white mr-3 ${
                     index === 0 ? 'bg-emerald-500' : index === 1 ? 'bg-teal-400' : 'bg-cyan-500'
                   }`}>
-                    {index + 1}
+                    {item.year}
                   </span>
-                  <span className="text-sm font-medium text-gray-800">{item.prefecture}</span>
+                  <span className="text-sm font-medium text-gray-800">{item.year}年</span>
                 </div>
-                <span className="text-sm font-bold text-emerald-600">{item.totalCases.toLocaleString()}件</span>
+                <span className="text-sm font-bold text-emerald-600">{item.totalRecognized.toLocaleString()}件</span>
               </div>
             ))}
           </div>
@@ -263,17 +261,72 @@ export const CompactDashboard: React.FC = () => {
         <div className="grid grid-cols-12 gap-6 h-[calc(100vh-320px)]">
           {/* Left Column - Charts (8/12) */}
           <div className="col-span-12 lg:col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CompactChart title="国籍別検挙状況" height="h-full">
-              <NationalityBarChart data={data.foreignerCrimes.byNationality} />
+            <CompactChart title="年次推移" height="h-full">
+              <div className="flex items-center justify-center h-full bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl">
+                <div className="text-center">
+                  <div className="text-4xl mb-4">📈</div>
+                  <h4 className="font-bold text-gray-700 mb-2">年次推移グラフ</h4>
+                  <p className="text-sm text-gray-500">2006-2016年の犯罪統計トレンド</p>
+                  <div className="mt-4 space-y-2">
+                    <div className="flex justify-between text-xs">
+                      <span>最新年度:</span>
+                      <span className="font-bold">{data.summary.latestYear}年</span>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span>総認知件数:</span>
+                      <span className="font-bold">{data.summary.totalRecognizedCases.toLocaleString()}件</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </CompactChart>
             
-            <CompactChart title="都道府県別分布" height="h-full">
-              <PrefectureDonutChart data={data.foreignerCrimes.byPrefecture} />
+            <CompactChart title="犯罪種別トップ10" height="h-full">
+              <div className="flex items-center justify-center h-full bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl">
+                <div className="text-center w-full p-4">
+                  <div className="text-4xl mb-4">🏆</div>
+                  <h4 className="font-bold text-gray-700 mb-4">主要犯罪種別</h4>
+                  <div className="space-y-2 max-h-48 overflow-y-auto">
+                    {data.crimeTypes.slice(0, 5).map((crime, index) => (
+                      <div key={crime.code} className="flex justify-between items-center p-2 bg-white/60 rounded-lg">
+                        <div className="flex items-center">
+                          <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white mr-2 ${
+                            index === 0 ? 'bg-red-500' : index === 1 ? 'bg-orange-500' : index === 2 ? 'bg-yellow-500' : 'bg-green-500'
+                          }`}>
+                            {index + 1}
+                          </span>
+                          <span className="text-xs font-medium">{crime.name}</span>
+                        </div>
+                        <span className="text-xs font-bold">{crime.recognized.toLocaleString()}件</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </CompactChart>
             
             <div className="col-span-1 lg:col-span-2">
-              <CompactChart title="犯罪種別構成" height="h-full">
-                <CrimeTypePieChart data={data.foreignerCrimes.byNationality} />
+              <CompactChart title="重要犯罪統計" height="h-full">
+                <div className="flex items-center justify-center h-full bg-gradient-to-br from-red-50 to-pink-50 rounded-xl">
+                  <div className="text-center w-full p-4">
+                    <div className="text-4xl mb-4">🚨</div>
+                    <h4 className="font-bold text-gray-700 mb-4">重要犯罪（殺人・強盗・放火・強姦）</h4>
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="bg-white/60 rounded-lg p-3">
+                        <div className="text-xl font-bold text-red-600">{data.seriousCrimes.total.toLocaleString()}</div>
+                        <div className="text-xs text-gray-600">総認知件数</div>
+                      </div>
+                      <div className="bg-white/60 rounded-lg p-3">
+                        <div className="text-xl font-bold text-green-600">{data.seriousCrimes.arrested.toLocaleString()}</div>
+                        <div className="text-xs text-gray-600">検挙件数</div>
+                      </div>
+                      <div className="bg-white/60 rounded-lg p-3">
+                        <div className="text-xl font-bold text-blue-600">{data.seriousCrimes.arrestRate}%</div>
+                        <div className="text-xs text-gray-600">検挙率</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </CompactChart>
             </div>
           </div>
@@ -290,23 +343,23 @@ export const CompactDashboard: React.FC = () => {
             <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-2xl p-6 border border-gray-100/50 hover:shadow-2xl transition-all duration-500">
               <div className="flex items-center mb-4">
                 <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full mr-3"></div>
-                <h3 className="text-lg font-bold text-gray-800">国籍別詳細データ</h3>
+                <h3 className="text-lg font-bold text-gray-800">年次推移詳細</h3>
               </div>
               <div className="overflow-x-auto">
                 <table className="min-w-full text-sm">
                   <thead className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">国・地域</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">総人員</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">重要犯罪</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">年度</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">認知件数</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">検挙率</th>
                     </tr>
                   </thead>
                   <tbody className="space-y-1">
-                    {data.foreignerCrimes.byNationality.slice(0, 8).map((item, index) => (
-                      <tr key={index} className="hover:bg-blue-50/50 transition-colors duration-200 rounded-lg">
-                        <td className="px-4 py-3 font-medium text-gray-800">{item.country}</td>
-                        <td className="px-4 py-3 text-blue-600 font-semibold">{item.totalPersons.toLocaleString()}</td>
-                        <td className="px-4 py-3 text-red-600 font-semibold">{item.seriousCrimes.total.toLocaleString()}</td>
+                    {data.yearlyTrends.slice(-8).reverse().map((item) => (
+                      <tr key={item.year} className="hover:bg-blue-50/50 transition-colors duration-200 rounded-lg">
+                        <td className="px-4 py-3 font-medium text-gray-800">{item.year}年</td>
+                        <td className="px-4 py-3 text-blue-600 font-semibold">{item.totalRecognized.toLocaleString()}件</td>
+                        <td className="px-4 py-3 text-green-600 font-semibold">{item.arrestRate}%</td>
                       </tr>
                     ))}
                   </tbody>
@@ -317,23 +370,23 @@ export const CompactDashboard: React.FC = () => {
             <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-2xl p-6 border border-gray-100/50 hover:shadow-2xl transition-all duration-500">
               <div className="flex items-center mb-4">
                 <div className="w-1 h-6 bg-gradient-to-b from-emerald-500 to-teal-600 rounded-full mr-3"></div>
-                <h3 className="text-lg font-bold text-gray-800">都道府県別詳細データ</h3>
+                <h3 className="text-lg font-bold text-gray-800">重要犯罪詳細</h3>
               </div>
               <div className="overflow-x-auto">
                 <table className="min-w-full text-sm">
                   <thead className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">都道府県</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">総件数</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">総人員</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">犯罪種別</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">認知件数</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">検挙件数</th>
                     </tr>
                   </thead>
                   <tbody className="space-y-1">
-                    {data.foreignerCrimes.byPrefecture.slice(0, 8).map((item, index) => (
-                      <tr key={index} className="hover:bg-emerald-50/50 transition-colors duration-200 rounded-lg">
-                        <td className="px-4 py-3 font-medium text-gray-800">{item.prefecture}</td>
-                        <td className="px-4 py-3 text-emerald-600 font-semibold">{item.totalCases.toLocaleString()}</td>
-                        <td className="px-4 py-3 text-teal-600 font-semibold">{item.totalPersons.toLocaleString()}</td>
+                    {data.seriousCrimes.breakdown.slice(0, 6).map((item) => (
+                      <tr key={item.code} className="hover:bg-emerald-50/50 transition-colors duration-200 rounded-lg">
+                        <td className="px-4 py-3 font-medium text-gray-800">{item.name}</td>
+                        <td className="px-4 py-3 text-emerald-600 font-semibold">{item.recognized.toLocaleString()}件</td>
+                        <td className="px-4 py-3 text-teal-600 font-semibold">{item.arrested.toLocaleString()}件</td>
                       </tr>
                     ))}
                   </tbody>

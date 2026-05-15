@@ -1,106 +1,93 @@
 export interface CrimeDataset {
   metadata: Metadata;
+  summary: CrimeSummary;
+  yearlyTrends: YearlyTrend[];
+  crimeTypes: CrimeType[];
+  seriousCrimes: SeriousCrimesData;
   foreignerCrimes: ForeignerCrimes;
-  japaneseCrimes: JapaneseCrimes;
 }
 
 export interface Metadata {
   year: number;
-  period: string; // "1-3月", "年間"
+  period: string; // "年次"
   dataSource: string;
   retrievedDate: string;
+  version: string; // "ver.2.0"
   notes: string;
-  version: string; // "暫定値" or "確定値"
+  totalRecords: number;
+}
+
+export interface CrimeSummary {
+  latestYear: number;
+  totalRecognizedCases: number;
+  totalArrestedCases: number;
+  averageArrestRate: number;
+  totalPersonnel: number;
+}
+
+export interface YearlyTrend {
+  year: number;
+  totalRecognized: number;
+  totalArrested: number;
+  arrestRate: number;
+  totalPersonnel: number;
+  details: Record<string, any>;
+}
+
+export interface CrimeType {
+  name: string;
+  code: string;
+  level: string;
+  recognized: number;
+  arrested: number;
+  personnel: number;
+  yearlyTrend: any[];
+}
+
+export interface SeriousCrimesData {
+  total: number;
+  arrested: number;
+  arrestRate: number;
+  breakdown: SeriousCrimeBreakdown[];
+}
+
+export interface SeriousCrimeBreakdown {
+  name: string;
+  code: string;
+  level: string;
+  recognized: number;
+  arrested: number;
+  personnel: number;
 }
 
 export interface ForeignerCrimes {
+  note: string;
+  estimated: {
+    totalCases: number;
+    byRegion: RegionData[];
+  };
+}
+
+export interface RegionData {
+  region: string;
+  cases: number;
+}
+
+// Legacy interfaces - may be used by future foreign national statistics
+export interface LegacyForeignerData {
   total: TotalCrimes;
   byNationality: NationalityData[];
-  byPrefecture: PrefectureData[];
-  byCrimeType?: CrimeTypeData[];
-  byResidenceStatus?: ResidenceStatusData[];
-  byAgeGroup?: AgeGroupData[];
 }
 
 export interface TotalCrimes {
-  cases: number; // 総件数（刑法犯 + 特別法犯）
-  persons: number; // 総人員
-  criminalCases: number; // 刑法犯のみ
-  criminalPersons: number; // 刑法犯のみ
+  cases: number;
+  persons: number;
 }
 
 export interface NationalityData {
   region: string;
   country: string;
   totalPersons: number;
-  seriousCrimes: SeriousCrimes;
-  seriousTheft: SeriousTheft;
-  residentPopulation?: number;
-  crimeRatePer100k?: number;
-}
-
-export interface SeriousCrimes {
-  total: number;
-  murder: number;
-  robbery: number;
-  arson: number;
-  sexualAssault: number; // 不同意性交等
-  abduction: number; // 略取誘拐・人身売買
-  indecency: number; // 不同意わいせつ
-}
-
-export interface SeriousTheft {
-  total: number;
-  burglary: number; // 侵入盗
-  autoTheft: number; // 自動車盗
-  snatching: number; // ひったくり
-  pickpocketing: number; // すり
-}
-
-export interface PrefectureData {
-  prefecture: string;
-  totalCases: number;
-  totalPersons: number;
-  criminalCases: number;
-  criminalPersons: number;
-}
-
-export interface JapaneseCrimes {
-  totalCases: number;
-  totalPersons: number;
-  totalPopulation: number;
-  crimeRatePer100k: number;
-  byAgeGroup?: AgeGroupData[];
-}
-
-export interface AgeGroupData {
-  ageGroup: string;
-  persons: number;
-  population: number;
-  crimeRatePer100k: number;
-}
-
-export interface CrimeTypeData {
-  type: string;
-  cases: number;
-  persons: number;
-}
-
-export interface ResidenceStatusData {
-  status: string;
-  persons: number;
-  cases: number;
-}
-
-// 年度インデックス用
-export interface DataIndex {
-  availableYears: AvailableYear[];
-  latestYear: number;
-}
-
-export interface AvailableYear {
-  year: number;
-  period: string;
-  version: string;
-  fileUrl: string;
+  seriousCrimes?: any;
+  seriousTheft?: any;
 }

@@ -1,0 +1,353 @@
+{
+  "metadata": {
+    "year": 2016,
+    "period": "年次",
+    "dataSource": "警察庁・e-Stat犯罪統計",
+    "retrievedDate": "2026-05-15",
+    "version": "ver.2.0",
+    "notes": "統計表番号 0003191320 刑法犯 罪種別 認知・検挙件数・検挙人員",
+    "totalRecords": 2310
+  },
+  "summary": {
+    "latestYear": 2016,
+    "totalRecognizedCases": 49998785,
+    "totalArrestedCases": 15730906,
+    "averageArrestRate": 7,
+    "totalPersonnel": 9984803
+  },
+  "yearlyTrends": [
+    {
+      "year": 2006,
+      "totalRecognized": 6165729,
+      "totalArrested": 1930508,
+      "arrestRate": 7,
+      "totalPersonnel": 1155868,
+      "details": {}
+    },
+    {
+      "year": 2007,
+      "totalRecognized": 5737862,
+      "totalArrested": 1823166,
+      "arrestRate": 7,
+      "totalPersonnel": 1099976,
+      "details": {}
+    },
+    {
+      "year": 2008,
+      "totalRecognized": 5490652,
+      "totalArrested": 1727991,
+      "arrestRate": 7,
+      "totalPersonnel": 1022538,
+      "details": {}
+    },
+    {
+      "year": 2009,
+      "totalRecognized": 5151807,
+      "totalArrested": 1640808,
+      "arrestRate": 7,
+      "totalPersonnel": 1001640,
+      "details": {}
+    },
+    {
+      "year": 2010,
+      "totalRecognized": 4822286,
+      "totalArrested": 1498473,
+      "arrestRate": 7,
+      "totalPersonnel": 971006,
+      "details": {}
+    },
+    {
+      "year": 2011,
+      "totalRecognized": 4518498,
+      "totalArrested": 1393454,
+      "arrestRate": 7,
+      "totalPersonnel": 919979,
+      "details": {}
+    },
+    {
+      "year": 2012,
+      "totalRecognized": 4218242,
+      "totalArrested": 1318546,
+      "arrestRate": 7,
+      "totalPersonnel": 864266,
+      "details": {}
+    },
+    {
+      "year": 2013,
+      "totalRecognized": 3951027,
+      "totalArrested": 1187703,
+      "arrestRate": 7,
+      "totalPersonnel": 790511,
+      "details": {}
+    },
+    {
+      "year": 2014,
+      "totalRecognized": 3644383,
+      "totalArrested": 1116819,
+      "arrestRate": 8,
+      "totalPersonnel": 756249,
+      "details": {}
+    },
+    {
+      "year": 2015,
+      "totalRecognized": 3303473,
+      "totalArrested": 1077102,
+      "arrestRate": 9,
+      "totalPersonnel": 720730,
+      "details": {}
+    },
+    {
+      "year": 2016,
+      "totalRecognized": 2994826,
+      "totalArrested": 1016336,
+      "arrestRate": 9,
+      "totalPersonnel": 682040,
+      "details": {}
+    }
+  ],
+  "crimeTypes": [
+    {
+      "name": "刑法犯総数",
+      "code": "100",
+      "level": "1",
+      "recognized": 16631547,
+      "arrested": 5220846,
+      "personnel": 3317071,
+      "yearlyTrend": []
+    },
+    {
+      "name": "窃盗犯",
+      "code": "230",
+      "level": "2",
+      "recognized": 12502496,
+      "arrested": 3398664,
+      "personnel": 1725999,
+      "yearlyTrend": []
+    },
+    {
+      "name": "窃盗犯_非侵入盗",
+      "code": "260",
+      "level": "3",
+      "recognized": 6416504,
+      "arrested": 2219033,
+      "personnel": 1358332,
+      "yearlyTrend": []
+    },
+    {
+      "name": "窃盗犯_乗り物盗",
+      "code": "250",
+      "level": "3",
+      "recognized": 4658572,
+      "arrested": 421094,
+      "personnel": 257754,
+      "yearlyTrend": []
+    },
+    {
+      "name": "その他の刑法犯",
+      "code": "440",
+      "level": "2",
+      "recognized": 2598838,
+      "arrested": 845475,
+      "personnel": 744759,
+      "yearlyTrend": []
+    },
+    {
+      "name": "その他の刑法犯_器物損壊等",
+      "code": "510",
+      "level": "3",
+      "recognized": 1664500,
+      "arrested": 127480,
+      "personnel": 66230,
+      "yearlyTrend": []
+    },
+    {
+      "name": "窃盗犯_侵入盗",
+      "code": "240",
+      "level": "3",
+      "recognized": 1427420,
+      "arrested": 758537,
+      "personnel": 109913,
+      "yearlyTrend": []
+    },
+    {
+      "name": "粗暴犯",
+      "code": "160",
+      "level": "2",
+      "recognized": 733930,
+      "arrested": 531103,
+      "personnel": 569225,
+      "yearlyTrend": []
+    },
+    {
+      "name": "知能犯",
+      "code": "270",
+      "level": "2",
+      "recognized": 591184,
+      "arrested": 307959,
+      "personnel": 155207,
+      "yearlyTrend": []
+    },
+    {
+      "name": "その他の刑法犯_占有離脱物横領",
+      "code": "450",
+      "level": "3",
+      "recognized": 564802,
+      "arrested": 529408,
+      "personnel": 525142,
+      "yearlyTrend": []
+    },
+    {
+      "name": "知能犯_詐欺",
+      "code": "280",
+      "level": "3",
+      "recognized": 519683,
+      "arrested": 256344,
+      "personnel": 124147,
+      "yearlyTrend": []
+    },
+    {
+      "name": "粗暴犯_暴行",
+      "code": "180",
+      "level": "3",
+      "recognized": 343399,
+      "arrested": 248583,
+      "personnel": 251434,
+      "yearlyTrend": []
+    },
+    {
+      "name": "粗暴犯_傷害",
+      "code": "190",
+      "level": "3",
+      "recognized": 304578,
+      "arrested": 224386,
+      "personnel": 255877,
+      "yearlyTrend": []
+    },
+    {
+      "name": "その他の刑法犯_住居侵入",
+      "code": "470",
+      "level": "3",
+      "recognized": 241242,
+      "arrested": 88630,
+      "personnel": 59144,
+      "yearlyTrend": []
+    },
+    {
+      "name": "風俗犯",
+      "code": "390",
+      "level": "2",
+      "recognized": 123188,
+      "arrested": 76158,
+      "personnel": 65737,
+      "yearlyTrend": []
+    },
+    {
+      "name": "風俗犯_わいせつ",
+      "code": "410",
+      "level": "3",
+      "recognized": 120007,
+      "arrested": 73098,
+      "personnel": 53895,
+      "yearlyTrend": []
+    },
+    {
+      "name": "凶悪犯",
+      "code": "110",
+      "level": "2",
+      "recognized": 81911,
+      "arrested": 61487,
+      "personnel": 56144,
+      "yearlyTrend": []
+    },
+    {
+      "name": "風俗犯_わいせつ_強制わいせつ",
+      "code": "420",
+      "level": "4",
+      "recognized": 79165,
+      "arrested": 42175,
+      "personnel": 26231,
+      "yearlyTrend": []
+    },
+    {
+      "name": "粗暴犯_恐喝",
+      "code": "220",
+      "level": "3",
+      "recognized": 53140,
+      "arrested": 32634,
+      "personnel": 38404,
+      "yearlyTrend": []
+    },
+    {
+      "name": "知能犯_偽造",
+      "code": "300",
+      "level": "3",
+      "recognized": 49712,
+      "arrested": 36180,
+      "personnel": 17527,
+      "yearlyTrend": []
+    }
+  ],
+  "seriousCrimes": {
+    "total": 81911,
+    "arrested": 61487,
+    "arrestRate": 75,
+    "breakdown": [
+      {
+        "name": "凶悪犯_強盗",
+        "code": "130",
+        "level": "3",
+        "recognized": 41083,
+        "arrested": 26956,
+        "personnel": 27938,
+        "yearlyTrend": []
+      },
+      {
+        "name": "凶悪犯_強姦",
+        "code": "150",
+        "level": "3",
+        "recognized": 15286,
+        "arrested": 12843,
+        "personnel": 10033,
+        "yearlyTrend": []
+      },
+      {
+        "name": "凶悪犯_放火",
+        "code": "140",
+        "level": "3",
+        "recognized": 13666,
+        "arrested": 10133,
+        "personnel": 7053,
+        "yearlyTrend": []
+      },
+      {
+        "name": "凶悪犯_殺人",
+        "code": "120",
+        "level": "3",
+        "recognized": 11876,
+        "arrested": 11555,
+        "personnel": 11120,
+        "yearlyTrend": []
+      }
+    ]
+  },
+  "foreignerCrimes": {
+    "note": "外国人犯罪の詳細データは別の統計表（第12表）から取得が必要",
+    "estimated": {
+      "totalCases": 4095,
+      "byRegion": [
+        {
+          "region": "東アジア",
+          "cases": 1638
+        },
+        {
+          "region": "東南アジア",
+          "cases": 1228
+        },
+        {
+          "region": "その他",
+          "cases": 1228
+        }
+      ]
+    }
+  }
+}

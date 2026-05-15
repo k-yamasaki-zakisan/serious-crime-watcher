@@ -1,37 +1,10 @@
 #!/usr/bin/env node
 
-/**
- * e-Stat 犯罪統計検索スクリプト
- * 来日外国人関連の統計データを検索
- */
+import { config } from 'dotenv';
 
-const fs = require('fs');
-const path = require('path');
+config({ path: '../frontend/.env' });
 
-// .envファイルを読み込み
-function loadEnv() {
-  const envPath = path.join(__dirname, '.env');
-  if (!fs.existsSync(envPath)) {
-    console.error('❌ .envファイルが見つかりません');
-    process.exit(1);
-  }
-  
-  const envContent = fs.readFileSync(envPath, 'utf8');
-  const lines = envContent.split('\n');
-  
-  for (const line of lines) {
-    if (line.trim() && !line.startsWith('#')) {
-      const [key, value] = line.split('=');
-      if (key && value) {
-        process.env[key.trim()] = value.trim();
-      }
-    }
-  }
-}
-
-loadEnv();
-
-const APP_ID = process.env.ESTAT_APP_ID;
+const API_ID = process.env.VITE_ESTAT_API_ID;
 const BASE_URL = 'https://api.e-stat.go.jp/rest/3.0/app';
 
 async function searchCrimeStats() {
@@ -50,7 +23,7 @@ async function searchCrimeStats() {
     console.log(`🔎 検索キーワード: "${term}"`);
     
     try {
-      const searchUrl = `${BASE_URL}/json/getStatsList?appId=${APP_ID}&searchWord=${encodeURIComponent(term)}&limit=50`;
+      const searchUrl = `${BASE_URL}/json/getStatsList?appId=${API_ID}&searchWord=${encodeURIComponent(term)}&limit=50`;
       
       const response = await fetch(searchUrl);
       const data = await response.json();
@@ -99,7 +72,7 @@ async function searchCrimeStats() {
   console.log('🏢 警察庁統計コード (00130001) で検索...');
   
   try {
-    const policeUrl = `${BASE_URL}/json/getStatsList?appId=${APP_ID}&statsCode=00130001&limit=100`;
+    const policeUrl = `${BASE_URL}/json/getStatsList?appId=${API_ID}&statsCode=00130001&limit=100`;
     
     const response = await fetch(policeUrl);
     const data = await response.json();
